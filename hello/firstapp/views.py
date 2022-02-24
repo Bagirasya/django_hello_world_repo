@@ -23,7 +23,7 @@ def products(request, productid = 21):
     return HttpResponse(output)
 
 
-def users(request, id, name):
+def users(request, id=2, name='Tom'):
     output = "<h2>User</h2><h3>id: {0}  name: {1}</h3>".format(id, name)
     return HttpResponse(output)
 
