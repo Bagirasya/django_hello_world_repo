@@ -18,13 +18,16 @@ from django.urls import path
 from django.urls import re_path
 from firstapp import views
 
+admin.autodiscover()
 urlpatterns = [
     re_path(r'^products/$', views.products),
     path('', views.index, name='home'),
     path('hello_world', views.hello_world),
+    path('contact/', views.contact),
+    path('details/', views.details),
     re_path(r'^about/contact/', views.contact),
     re_path(r'^about', views.about),
-    path('admin/', admin.site.urls),
+    re_path(r'^admin/', admin.site.urls),
     path('products/<int:productid>/', views.products),
     path('users/', views.users),
 ]
