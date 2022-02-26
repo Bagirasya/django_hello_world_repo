@@ -25,8 +25,6 @@ urlpatterns = [
     re_path(r'^about/contact/', views.contact),
     re_path(r'^about', views.about),
     path('admin/', admin.site.urls),
-    re_path(r'^products/(?P<productid>\d+)/', views.products),
-
+    path('products/<int:productid>/', views.products),
     path('users/', views.users),
-    path('users/<int:id>/<str:name>/', views.users),
 ]
