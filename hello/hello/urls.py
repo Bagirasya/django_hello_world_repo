@@ -21,7 +21,7 @@ from firstapp import views
 admin.autodiscover()
 urlpatterns = [
     re_path(r'^products/$', views.products),
-    path('', views.index, name='home'),
+    path('', views.index),
     path('hello_world', views.hello_world),
     path('contact/', views.contact),
     path('details/', views.details),
