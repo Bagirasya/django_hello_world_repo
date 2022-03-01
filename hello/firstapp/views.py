@@ -18,7 +18,8 @@ def hello_world(request):
 
 
 def index(request):
-    return render(request, "firstapp/home.html")
+    data = {"header": "Hello Django", "message": "Welcome to Python"}
+    return render(request, "index.html", context=data)
 
 
 def about(request):
