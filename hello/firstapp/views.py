@@ -14,22 +14,23 @@ from django.http import (
 
 
 def hello_world(request):
-    return HttpResponse("Hello World!")
+    langs = ["English", "German", "French", "Spanish", "Chinese"]
+    return render(request, "index.html", context={"langs": langs})
 
 
 def index(request):
-    data = {"header": "Hello Django", "message": "Welcome to Python"}
-    return render(request, "firstapp/index.html", context=data)
+    data = {"n" : 5}
+    return render(request, "index.html", context=data)
 
 
 def about(request):
-    header = "О сайте"  # обычная переменная
-    langs = ["English", "German", "Spanish"]  # массив
-    user = {"name": "Tom", "age": 23}  # словарь
-    addr = ("Абрикосовая", 23, 45)  # кортеж
-
-    data = {"header": header, "langs": langs, "user": user, "address": addr}
-    return render(request, "about.html", context=data)
+    # header = "О сайте"  # обычная переменная
+    # langs = ["English", "German", "Spanish"]  # массив
+    # user = {"name": "Tom", "age": 23}  # словарь
+    # addr = ("Абрикосовая", 23, 45)  # кортеж
+    #
+    # data = {"header": header, "langs": langs, "user": user, "address": addr}
+    return render(request, "about.html", ) #context=data
 
 
 def contact(request):
