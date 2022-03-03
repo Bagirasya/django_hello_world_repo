@@ -17,13 +17,14 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import re_path
 from firstapp import views
+from django.views.generic import TemplateView
 
 admin.autodiscover()
 urlpatterns = [
     re_path(r'^products/$', views.products),
     path('', views.index),
     path('hello_world', views.hello_world),
-    path('contact/', views.contact),
+    path('contact/', TemplateView.as_view(template_name="contact.html", extra_context={"header": "In progress"})),
     path('details/', views.details),
     re_path(r'^about/contact/', views.contact),
     re_path(r'^about', views.about),
