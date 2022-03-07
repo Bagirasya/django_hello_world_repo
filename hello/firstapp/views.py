@@ -11,6 +11,7 @@ from django.http import (
     HttpResponseServerError,
     HttpResponseGone,
 )
+from .forms import UserForm
 
 
 def hello_world(request):
@@ -19,8 +20,13 @@ def hello_world(request):
 
 
 def index(request):
-    data = {"n" : 5}
-    return render(request, "index.html", context=data)
+    if request.method == "POST":
+        name = request.POST.get("name")
+        age = request.POST.get("age")     # получение значения поля age
+        return HttpResponse("<h2>Hello, {0}, {1} y.o.</h2>".format(name, age))
+    else:
+        userform = UserForm()
+        return render(request, "index.html", {"form": userform})
 
 
 def about(request):
